@@ -11,13 +11,23 @@ public class FizzBuzzGenerator {
         else {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 1; i <= sequenceLength; i++) {
-                stringBuilder.append(i + ",");
+                if(divisibleByThree(i))
+                    stringBuilder.append("Fizz,");
+                else
+                    stringBuilder.append(i + ",");
             }
             String sequence = stringBuilder.toString();
             sequence = removeLastComma(sequence);
             return sequence;
         }
 
+    }
+
+    private boolean divisibleByThree(int i) {
+        if ((i % 3) == 0)
+            return true;
+        else
+            return false;
     }
 
     private String removeLastComma(String sequence) {
