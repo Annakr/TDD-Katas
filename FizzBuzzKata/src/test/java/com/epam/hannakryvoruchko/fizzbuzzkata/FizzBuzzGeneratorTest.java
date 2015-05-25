@@ -34,4 +34,10 @@ public class FizzBuzzGeneratorTest {
         Assert.assertEquals("1", sequence);
     }
 
+    @Test
+    public void testGenerateTwoNumbersLength(){
+        String sequence = fizzBuzzGenerator.generate(1);
+        Assert.assertEquals("1,2", sequence);
+    }
+
 }
