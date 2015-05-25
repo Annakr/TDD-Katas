@@ -59,7 +59,6 @@ public class FizzBuzzGeneratorTest {
         Assert.assertEquals("1,2,Fizz,4,Buzz,Fizz", sequence);
     }
 
-    @Ignore()
     @Test
     public void testGenerateFifteenNumbersLength(){
         String sequence = fizzBuzzGenerator.generate(15);
