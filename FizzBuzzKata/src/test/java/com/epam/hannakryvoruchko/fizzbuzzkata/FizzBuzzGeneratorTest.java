@@ -2,6 +2,7 @@ package com.epam.hannakryvoruchko.fizzbuzzkata;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -58,6 +59,7 @@ public class FizzBuzzGeneratorTest {
         Assert.assertEquals("1,2,Fizz,4,Buzz,Fizz", sequence);
     }
 
+    @Ignore()
     @Test
     public void testGenerateFifteenNumbersLength(){
         String sequence = fizzBuzzGenerator.generate(15);
