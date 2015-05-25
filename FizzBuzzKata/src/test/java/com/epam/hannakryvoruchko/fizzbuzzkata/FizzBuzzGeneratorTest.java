@@ -28,4 +28,10 @@ public class FizzBuzzGeneratorTest {
         Assert.assertEquals("", sequence);
     }
 
+    @Test
+    public void testGenerateOneNumberLength(){
+        String sequence = fizzBuzzGenerator.generate(1);
+        Assert.assertEquals("1", sequence);
+    }
+
 }
