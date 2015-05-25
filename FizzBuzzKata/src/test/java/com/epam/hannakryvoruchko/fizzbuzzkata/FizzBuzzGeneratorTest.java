@@ -22,4 +22,10 @@ public class FizzBuzzGeneratorTest {
         Assert.assertEquals("", sequence);
     }
 
+    @Test
+    public void testGenerateNegativeLength(){
+        String sequence = fizzBuzzGenerator.generate(-1);
+        Assert.assertEquals("", sequence);
+    }
+
 }
