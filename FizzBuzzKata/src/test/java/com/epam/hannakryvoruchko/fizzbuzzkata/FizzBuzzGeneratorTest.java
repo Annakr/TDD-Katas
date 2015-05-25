@@ -40,4 +40,10 @@ public class FizzBuzzGeneratorTest {
         Assert.assertEquals("1,2", sequence);
     }
 
+    @Test
+    public void testGenerateThreeNumbersLength(){
+        String sequence = fizzBuzzGenerator.generate(3);
+        Assert.assertEquals("1,2,Fizz", sequence);
+    }
+
 }
