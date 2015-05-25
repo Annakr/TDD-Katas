@@ -6,6 +6,9 @@ package com.epam.hannakryvoruchko.fizzbuzzkata;
 public class FizzBuzzGenerator {
 
     public String generate(int sequenceLength) {
-        return "";
+        if (sequenceLength < 1)
+            return "";
+        else
+            return "1";
     }
 }
