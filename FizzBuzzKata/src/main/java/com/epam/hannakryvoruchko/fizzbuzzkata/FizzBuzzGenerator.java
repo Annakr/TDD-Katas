@@ -6,6 +6,6 @@ package com.epam.hannakryvoruchko.fizzbuzzkata;
 public class FizzBuzzGenerator {
 
     public String generate(int i) {
-        return null;
+        return "";
     }
 }

@@ -17,7 +17,7 @@ public class FizzBuzzGeneratorTest {
     }
 
     @Test
-    public void testGenerate(){
+    public void testGenerateZeroLength(){
         String sequence = fizzBuzzGenerator.generate(0);
         Assert.assertEquals("", sequence);
     }
