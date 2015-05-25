@@ -11,8 +11,10 @@ public class FizzBuzzGenerator {
         else {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 1; i <= sequenceLength; i++) {
-                if(divisibleByThree(i))
+                if (divisibleByThree(i))
                     stringBuilder.append("Fizz,");
+                else if (divisibleByFive(i))
+                    stringBuilder.append("Buzz,");
                 else
                     stringBuilder.append(i + ",");
             }
@@ -21,6 +23,13 @@ public class FizzBuzzGenerator {
             return sequence;
         }
 
+    }
+
+    private boolean divisibleByFive(int i) {
+        if ((i % 5) == 0)
+            return true;
+        else
+            return false;
     }
 
     private boolean divisibleByThree(int i) {
