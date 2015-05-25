@@ -5,7 +5,7 @@ package com.epam.hannakryvoruchko.fizzbuzzkata;
  */
 public class FizzBuzzGenerator {
 
-    public String generate(int i) {
+    public String generate(int sequenceLength) {
         return "";
     }
 }
