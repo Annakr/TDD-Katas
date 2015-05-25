@@ -5,26 +5,26 @@ package com.epam.hannakryvoruchko.fizzbuzzkata;
  */
 public class FizzBuzzGenerator {
 
+    public static final String DIVISIBLE_BY_THREE_MARK = "Fizz";
+    public static final String DIVISIBLE_BY_FIVE_MARK = "Buzz";
+    public static final String DELIMITER = ",";
+
     public String generate(int sequenceLength) {
         if (sequenceLength < 1)
             return "";
         else {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 1; i <= sequenceLength; i++) {
-                if (isDivisibleByThree(i)) {
-                    stringBuilder.append("Fizz");
-                    if (isDivisibleByFive(i))
-                        stringBuilder.append("Buzz");
-                }
-                else if (isDivisibleByFive(i))
-                    stringBuilder.append("Buzz");
-                else
+                if (!isDivisibleByThree(i) && !isDivisibleByFive(i))
                     stringBuilder.append(i);
-                stringBuilder.append(",");
+                else
+                    if (isDivisibleByThree(i))
+                        stringBuilder.append(DIVISIBLE_BY_THREE_MARK);
+                    if (isDivisibleByFive(i))
+                        stringBuilder.append(DIVISIBLE_BY_FIVE_MARK);
+                stringBuilder.append(DELIMITER);
             }
-            String sequence = stringBuilder.toString();
-            sequence = removeLastComma(sequence);
-            return sequence;
+            return removeLastDelimiter(stringBuilder.toString());
         }
 
     }
@@ -44,7 +44,7 @@ public class FizzBuzzGenerator {
             return false;
     }
 
-    private String removeLastComma(String sequence) {
+    private String removeLastDelimiter(String sequence) {
         return sequence.substring(0, sequence.length() - 1);
     }
 }
