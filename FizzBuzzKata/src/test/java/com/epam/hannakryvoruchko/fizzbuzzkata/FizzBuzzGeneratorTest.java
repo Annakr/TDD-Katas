@@ -52,4 +52,10 @@ public class FizzBuzzGeneratorTest {
         Assert.assertEquals("1,2,Fizz,4,Buzz", sequence);
     }
 
+    @Test
+    public void testGenerateSixNumbersLength(){
+        String sequence = fizzBuzzGenerator.generate(6);
+        Assert.assertEquals("1,2,Fizz,4,Buzz,Fizz", sequence);
+    }
+
 }
