@@ -50,7 +50,20 @@ public class GameOfLifeTest {
 
         //when
         game.calculateNextGeneration();
+    }
 
+    @Test
+    public void testCellShouldDieWhenHasZeroNeighbours() {
+        //given
+        boolean[][] grid = createGrid(3, 3);
+        grid[0][0] = true;
+        game.setGrid(grid);
+
+        //when
+        game.calculateNextGeneration();
+
+        //then
+        Assert.assertFalse(game.isAlive(0, 0));
     }
 
     private boolean[][] createGrid(int numberOfRows, int numberOfColumns) {
