@@ -20,11 +20,11 @@ public class GameOfLife {
     }
 
     public void calculateNextGeneration() {
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                int numberOfAliveNeighbours = calculateNumberOfAliveNeighbours(i, j);
+        for (int rowIndex = 0; rowIndex < grid.length; rowIndex++) {
+            for (int cellIndex = 0; cellIndex < grid[rowIndex].length; cellIndex++) {
+                int numberOfAliveNeighbours = calculateNumberOfAliveNeighbours(rowIndex, cellIndex);
                 if (numberOfAliveNeighbours < 2)
-                    setCellDead(i, j);
+                    setCellDead(rowIndex, cellIndex);
             }
         }
     }
@@ -42,7 +42,6 @@ public class GameOfLife {
                         numberOfAliveNeighbours++;
                 }
             }
-
         }
         return numberOfAliveNeighbours;
     }
