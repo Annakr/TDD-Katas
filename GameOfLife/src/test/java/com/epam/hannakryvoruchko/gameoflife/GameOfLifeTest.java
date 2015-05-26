@@ -2,6 +2,7 @@ package com.epam.hannakryvoruchko.gameoflife;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -115,6 +116,7 @@ public class GameOfLifeTest {
     }
 
     @Test
+    @Ignore
     public void testCellShouldDieWhenHasFourNeighbours() {
         //given
         boolean[][] grid = createGrid(4, 4);
