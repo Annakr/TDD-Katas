@@ -23,7 +23,7 @@ public class GameOfLife {
         for (int rowIndex = 0; rowIndex < grid.length; rowIndex++) {
             for (int cellIndex = 0; cellIndex < grid[rowIndex].length; cellIndex++) {
                 int numberOfAliveNeighbours = calculateNumberOfAliveNeighbours(rowIndex, cellIndex);
-                if (numberOfAliveNeighbours < 2)
+                if (numberOfAliveNeighbours < 2 || numberOfAliveNeighbours > 3)
                     setCellDead(rowIndex, cellIndex);
             }
         }
