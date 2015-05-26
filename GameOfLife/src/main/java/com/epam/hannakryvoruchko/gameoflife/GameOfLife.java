@@ -36,8 +36,8 @@ public class GameOfLife {
     private int calculateNumberOfAliveNeighbours(int row, int column) {
         int numberOfAliveNeighbours = 0;
         for (int i = row - 1; i <= row + 1; i++) {
-            for (int j = column - 1; j < column + 1; j++) {
-                if (i != row && j != column) {
+            for (int j = column - 1; j <= column + 1; j++) {
+                if (i != row || j != column) {
                     if (isAlive(i, j))
                         numberOfAliveNeighbours++;
                 }
@@ -46,6 +46,5 @@ public class GameOfLife {
         }
         return numberOfAliveNeighbours;
     }
-
 
 }
