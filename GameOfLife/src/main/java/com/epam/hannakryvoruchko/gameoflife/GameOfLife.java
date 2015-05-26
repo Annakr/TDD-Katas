@@ -5,5 +5,9 @@ package com.epam.hannakryvoruchko.gameoflife;
  */
 public class GameOfLife {
 
+    private boolean[][] grid;
 
+    public void setGrid(boolean[][] grid) {
+        this.grid = grid;
+    }
 }
