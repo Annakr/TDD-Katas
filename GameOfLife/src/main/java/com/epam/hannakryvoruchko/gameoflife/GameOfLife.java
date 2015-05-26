@@ -20,17 +20,19 @@ public class GameOfLife {
     }
 
     public void calculateNextGeneration() {
+        boolean[][] nextGenerationGrid = createEmptyGridOfSameSizeAsInitial();
         for (int rowIndex = 0; rowIndex < grid.length; rowIndex++) {
             for (int columnIndex = 0; columnIndex < grid[rowIndex].length; columnIndex++) {
                 int numberOfAliveNeighbours = calculateNumberOfAliveNeighbours(rowIndex, columnIndex);
-                if (numberOfAliveNeighbours < 2 || numberOfAliveNeighbours > 3)
-                    setCellDead(rowIndex, columnIndex);
+                if (numberOfAliveNeighbours >= 2 && numberOfAliveNeighbours <= 3)
+                    nextGenerationGrid[rowIndex][columnIndex] = true;
             }
         }
+        grid = nextGenerationGrid;
     }
 
-    private void setCellDead(int row, int cell) {
-        grid[row][cell] = false;
+    private boolean[][] createEmptyGridOfSameSizeAsInitial() {
+        return new boolean[grid.length][grid[0].length];
     }
 
     private int calculateNumberOfAliveNeighbours(int row, int column) {
