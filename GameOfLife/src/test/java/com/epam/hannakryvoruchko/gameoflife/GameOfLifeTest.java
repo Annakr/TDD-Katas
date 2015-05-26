@@ -18,12 +18,12 @@ public class GameOfLifeTest {
 
     @Test
     public void testSetGrid() {
-        game.setGrid(new boolean[3][3]);
+        game.setGrid(createGrid(3, 3));
     }
 
     @Test
     public void testGetCellStateIsDead() {
-        game.setGrid(new boolean[3][3]);
+        game.setGrid(createGrid(3, 3));
         boolean isCellAlive = game.isAlive(0, 0);
         Assert.assertFalse(isCellAlive);
     }
@@ -31,7 +31,7 @@ public class GameOfLifeTest {
     @Test
     public void testGetCellStateIsAlive() {
         //given
-        boolean[][] grid = new boolean[3][3];
+        boolean[][] grid = createGrid(3, 3);
         grid[0][0] = true;
         game.setGrid(grid);
 
@@ -41,6 +41,12 @@ public class GameOfLifeTest {
         //then
         Assert.assertTrue(isCellAlive);
     }
+
+    private boolean[][] createGrid(int numberOfRows, int numberOfColumns) {
+        return new boolean[numberOfRows][numberOfColumns];
+    }
+
+
 
 
 
