@@ -16,8 +16,10 @@ public class GameOfLifeTest {
     }
 
     @Test
-    public void setGrid() {
+    public void testSetGrid() {
         game.setGrid(new boolean[3][3]);
     }
+
+
 
 }
