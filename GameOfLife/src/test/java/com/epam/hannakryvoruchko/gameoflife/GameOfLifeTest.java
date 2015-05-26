@@ -11,7 +11,7 @@ public class GameOfLifeTest {
 
     @Before
     public void setUp() {
-        game = new GameOfLife(3, 3);
+        game = new GameOfLife();
     }
 
 

@@ -5,11 +5,5 @@ package com.epam.hannakryvoruchko.gameoflife;
  */
 public class GameOfLife {
 
-    private final int numberOfRows;
-    private final int numberOfCells;
 
-    public GameOfLife(int numberOfRows, int numberOfCells) {
-        this.numberOfRows = numberOfRows;
-        this.numberOfCells = numberOfCells;
-    }
 }
