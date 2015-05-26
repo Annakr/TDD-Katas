@@ -24,8 +24,10 @@ public class GameOfLife {
         for (int rowIndex = 0; rowIndex < grid.length; rowIndex++) {
             for (int columnIndex = 0; columnIndex < grid[rowIndex].length; columnIndex++) {
                 int numberOfAliveNeighbours = calculateNumberOfAliveNeighbours(rowIndex, columnIndex);
-                if (numberOfAliveNeighbours >= 2 && numberOfAliveNeighbours <= 3)
-                    nextGenerationGrid[rowIndex][columnIndex] = true;
+                if (isAlive(rowIndex, columnIndex)) {
+                    if (numberOfAliveNeighbours >= 2 && numberOfAliveNeighbours <= 3)
+                        nextGenerationGrid[rowIndex][columnIndex] = true;
+                }
             }
         }
         grid = nextGenerationGrid;
