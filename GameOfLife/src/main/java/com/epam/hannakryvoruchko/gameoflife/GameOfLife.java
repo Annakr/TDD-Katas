@@ -12,6 +12,6 @@ public class GameOfLife {
     }
 
     public boolean isAlive(int row, int column) {
-        return false;
+        return grid[row][column];
     }
 }
