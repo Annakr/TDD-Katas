@@ -10,4 +10,8 @@ public class GameOfLife {
     public void setGrid(boolean[][] grid) {
         this.grid = grid;
     }
+
+    public boolean isAlive(int row, int column) {
+        return false;
+    }
 }
