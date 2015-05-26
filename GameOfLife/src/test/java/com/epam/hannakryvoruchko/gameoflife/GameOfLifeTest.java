@@ -116,7 +116,6 @@ public class GameOfLifeTest {
     }
 
     @Test
-    @Ignore
     public void testCellShouldDieWhenHasFourNeighbours() {
         //given
         boolean[][] grid = createGrid(4, 4);
