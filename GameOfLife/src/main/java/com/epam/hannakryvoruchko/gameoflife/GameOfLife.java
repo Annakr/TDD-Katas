@@ -21,10 +21,10 @@ public class GameOfLife {
 
     public void calculateNextGeneration() {
         for (int rowIndex = 0; rowIndex < grid.length; rowIndex++) {
-            for (int cellIndex = 0; cellIndex < grid[rowIndex].length; cellIndex++) {
-                int numberOfAliveNeighbours = calculateNumberOfAliveNeighbours(rowIndex, cellIndex);
+            for (int columnIndex = 0; columnIndex < grid[rowIndex].length; columnIndex++) {
+                int numberOfAliveNeighbours = calculateNumberOfAliveNeighbours(rowIndex, columnIndex);
                 if (numberOfAliveNeighbours < 2 || numberOfAliveNeighbours > 3)
-                    setCellDead(rowIndex, cellIndex);
+                    setCellDead(rowIndex, columnIndex);
             }
         }
     }
