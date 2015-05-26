@@ -97,6 +97,23 @@ public class GameOfLifeTest {
         Assert.assertTrue(game.isAlive(0, 0));
     }
 
+    @Test
+    public void testCellShouldStayAliveWhenHasThreeNeighbours() {
+        //given
+        boolean[][] grid = createGrid(3, 3);
+        grid[0][0] = true;
+        grid[0][1] = true;
+        grid[1][0] = true;
+        grid[1][1] = true;
+        game.setGrid(grid);
+
+        //when
+        game.calculateNextGeneration();
+
+        //then
+        Assert.assertTrue(game.isAlive(0, 0));
+    }
+
     private boolean[][] createGrid(int numberOfRows, int numberOfColumns) {
         return new boolean[numberOfRows][numberOfColumns];
     }
