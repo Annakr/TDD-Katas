@@ -5,6 +5,9 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 /**
  * Created by Hanna_Kryvoruchko1 on 5/26/2015.
  */
@@ -26,7 +29,7 @@ public class GameOfLifeTest {
     public void testGetCellStateIsDead() {
         game.setGrid(createGrid(3, 3));
         boolean isCellAlive = game.isAlive(0, 0);
-        Assert.assertFalse(isCellAlive);
+        assertFalse(isCellAlive);
     }
 
     @Test
@@ -40,7 +43,7 @@ public class GameOfLifeTest {
         boolean isCellAlive = game.isAlive(0, 0);
 
         //then
-        Assert.assertTrue(isCellAlive);
+        assertTrue(isCellAlive);
     }
 
     @Test
@@ -64,7 +67,7 @@ public class GameOfLifeTest {
         game.calculateNextGeneration();
 
         //then
-        Assert.assertFalse(game.isAlive(0, 0));
+        assertFalse(game.isAlive(0, 0));
     }
 
     @Test
@@ -79,7 +82,7 @@ public class GameOfLifeTest {
         game.calculateNextGeneration();
 
         //then
-        Assert.assertFalse(game.isAlive(0, 0));
+        assertFalse(game.isAlive(0, 0));
     }
 
     @Test
@@ -95,7 +98,7 @@ public class GameOfLifeTest {
         game.calculateNextGeneration();
 
         //then
-        Assert.assertTrue(game.isAlive(0, 0));
+        assertTrue(game.isAlive(0, 0));
     }
 
     @Test
@@ -112,7 +115,7 @@ public class GameOfLifeTest {
         game.calculateNextGeneration();
 
         //then
-        Assert.assertTrue(game.isAlive(0, 0));
+        assertTrue(game.isAlive(0, 0));
     }
 
     @Test
@@ -130,7 +133,7 @@ public class GameOfLifeTest {
         game.calculateNextGeneration();
 
         //then
-        Assert.assertFalse(game.isAlive(1, 1));
+        assertFalse(game.isAlive(1, 1));
     }
 
     @Test
@@ -145,7 +148,7 @@ public class GameOfLifeTest {
         game.calculateNextGeneration();
 
         //then
-        Assert.assertFalse(game.isAlive(0, 0));
+        assertFalse(game.isAlive(0, 0));
     }
 
     @Test
@@ -161,7 +164,7 @@ public class GameOfLifeTest {
         game.calculateNextGeneration();
 
         //then
-        Assert.assertTrue(game.isAlive(0, 0));
+        assertTrue(game.isAlive(0, 0));
     }
 
     private boolean[][] createGrid(int numberOfRows, int numberOfColumns) {
