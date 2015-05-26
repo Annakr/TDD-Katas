@@ -167,6 +167,23 @@ public class GameOfLifeTest {
         assertTrue(game.isAlive(0, 0));
     }
 
+    @Test
+    public void testCellShouldStayDiedWhenHasFourNeighbours() {
+        //given
+        boolean[][] grid = createGrid(4, 4);
+        grid[0][0] = true;
+        grid[0][1] = true;
+        grid[0][2] = true;
+        grid[1][0] = true;
+        game.setGrid(grid);
+
+        //when
+        game.calculateNextGeneration();
+
+        //then
+        assertFalse(game.isAlive(1, 1));
+    }
+
     private boolean[][] createGrid(int numberOfRows, int numberOfColumns) {
         return new boolean[numberOfRows][numberOfColumns];
     }
