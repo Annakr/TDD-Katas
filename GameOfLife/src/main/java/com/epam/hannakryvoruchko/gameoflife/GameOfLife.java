@@ -27,6 +27,9 @@ public class GameOfLife {
                 if (isAlive(rowIndex, columnIndex)) {
                     if (numberOfAliveNeighbours >= 2 && numberOfAliveNeighbours <= 3)
                         nextGenerationGrid[rowIndex][columnIndex] = true;
+                } else {
+                    if (numberOfAliveNeighbours == 3)
+                        nextGenerationGrid[rowIndex][columnIndex] = true;
                 }
             }
         }
