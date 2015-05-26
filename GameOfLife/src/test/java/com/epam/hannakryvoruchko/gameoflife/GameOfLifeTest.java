@@ -42,6 +42,17 @@ public class GameOfLifeTest {
         Assert.assertTrue(isCellAlive);
     }
 
+    @Test
+    public void testCalculateNextGeneration() {
+        //given
+        boolean[][] grid = createGrid(3, 3);
+        game.setGrid(grid);
+
+        //when
+        game.calculateNextGeneration();
+
+    }
+
     private boolean[][] createGrid(int numberOfRows, int numberOfColumns) {
         return new boolean[numberOfRows][numberOfColumns];
     }
