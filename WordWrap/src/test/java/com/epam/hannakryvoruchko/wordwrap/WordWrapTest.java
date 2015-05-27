@@ -12,7 +12,10 @@ public class WordWrapTest {
     @Test
     public void noWrap() {
         assertEquals("word", WordWrapper.wrap("word", 4));
-
     }
 
+    @Test
+    public void shouldSplitSingleWord() {
+        assertEquals("wo\nrd", WordWrapper.wrap("word", 2));
+    }
 }
