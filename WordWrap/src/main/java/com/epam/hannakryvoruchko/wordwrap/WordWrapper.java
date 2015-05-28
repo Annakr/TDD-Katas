@@ -9,7 +9,12 @@ public class WordWrapper {
 
     public static String wrap(String sentence, int columnLength) {
         if(sentence.length() > columnLength) {
-            String firstPartOfSentence = sentence.substring(0, columnLength).trim();
+            String firstPartOfSentence;
+            if (sentence.charAt(columnLength - 1) == ' ') {
+                firstPartOfSentence = sentence.substring(0, columnLength - 1);
+            } else {
+                firstPartOfSentence = sentence.substring(0, columnLength);
+            }
             String restOfSentence = sentence.substring(columnLength);
             return firstPartOfSentence + LINE_SEPARATOR + wrap(restOfSentence, columnLength);
         } else
