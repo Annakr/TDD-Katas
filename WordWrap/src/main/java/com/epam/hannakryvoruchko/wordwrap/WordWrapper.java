@@ -7,22 +7,24 @@ public class WordWrapper {
 
     public static String wrap(String sentence, int columnLength) {
         if(sentence.length() > columnLength) {
-            String firstPartOfSentence;
-            String restOfSentence;
+            int indexOfBreak;
+            int indexOfNewLineStart;
             if (isSpaceRightBeforeBreak(sentence, columnLength)) {
-                firstPartOfSentence = sentence.substring(0, columnLength - 1);
-                restOfSentence = sentence.substring(columnLength);
+                indexOfBreak = columnLength - 1;
+                indexOfNewLineStart = columnLength;
             } else if (isSpaceRightAfterBreak(sentence, columnLength)) {
-                firstPartOfSentence = sentence.substring(0, columnLength);
-                restOfSentence = sentence.substring(columnLength + 1);
+                indexOfBreak = columnLength;
+                indexOfNewLineStart = columnLength + 1;
             } else if (containsSpaceBeforeBreak(sentence, columnLength)) {
                 int indexOfSpace = getIndexOfSpace(sentence, columnLength);
-                firstPartOfSentence = sentence.substring(0, indexOfSpace);
-                restOfSentence = sentence.substring(indexOfSpace + 1);
+                indexOfBreak = indexOfSpace;
+                indexOfNewLineStart = indexOfSpace + 1;
             } else {
-                firstPartOfSentence = sentence.substring(0, columnLength);
-                restOfSentence = sentence.substring(columnLength);
+                indexOfBreak = columnLength;
+                indexOfNewLineStart = columnLength;
             }
+            String firstPartOfSentence = sentence.substring(0, indexOfBreak);
+            String restOfSentence = sentence.substring(indexOfNewLineStart);
             return firstPartOfSentence + LINE_SEPARATOR + wrap(restOfSentence, columnLength);
         } else
             return sentence;
