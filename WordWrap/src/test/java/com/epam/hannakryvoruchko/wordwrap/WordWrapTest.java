@@ -5,9 +5,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by Hanna_Kryvoruchko1 on 5/27/2015.
- */
 public class WordWrapTest {
 
     @Test
@@ -58,7 +55,4 @@ public class WordWrapTest {
     public void shouldSplitInTwoLinesWhenTwoWordsFitColumn(){
         assertEquals("dolor sit\namet", WordWrapper.wrap("dolor sit amet", 9));
     }
-
-
-
 }
