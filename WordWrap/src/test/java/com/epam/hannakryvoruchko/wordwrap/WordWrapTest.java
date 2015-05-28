@@ -31,7 +31,6 @@ public class WordWrapTest {
     }
 
     @Test
-    @Ignore
     public void shouldNotRemoveSpaceAtTheBeginning(){
         assertEquals(" word\nword", WordWrapper.wrap(" word word", 6));
     }
