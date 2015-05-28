@@ -39,6 +39,9 @@ public class WordWrapTest {
     public void shouldSplitTwoWordsWhenSpaceBeforeBreak(){
         assertEquals("word\nword", WordWrapper.wrap("word word", 6));
     }
-
+    @Test
+    public void shouldSplitTwoWordsWhenSpaceAfterBreak(){
+        assertEquals("word\nword", WordWrapper.wrap("word word", 4));
+    }
 
 }
