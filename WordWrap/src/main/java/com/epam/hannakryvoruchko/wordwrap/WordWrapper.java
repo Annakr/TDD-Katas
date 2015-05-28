@@ -12,8 +12,7 @@ public class WordWrapper {
             String firstPartOfSentence = sentence.substring(0, columnLength);
             String restOfSentence = sentence.substring(columnLength);
             return firstPartOfSentence + LINE_SEPARATOR + wrap(restOfSentence, columnLength);
-        }
-        else
+        } else
             return sentence;
     }
 }

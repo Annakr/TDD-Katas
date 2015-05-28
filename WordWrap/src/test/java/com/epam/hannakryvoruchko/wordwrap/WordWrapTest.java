@@ -23,4 +23,9 @@ public class WordWrapTest {
     public void shouldSplitWordTwice() {
         assertEquals("lon\ngWo\nrd", WordWrapper.wrap("longWord", 3));
     }
+
+    @Test
+    public void shouldSplitTwoWordsWhenSpaceOnBreak(){
+        assertEquals("word\nword", WordWrapper.wrap("word word", 5));
+    }
 }
