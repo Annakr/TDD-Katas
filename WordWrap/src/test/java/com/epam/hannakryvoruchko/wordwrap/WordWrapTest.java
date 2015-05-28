@@ -18,4 +18,9 @@ public class WordWrapTest {
     public void shouldSplitSingleWord() {
         assertEquals("wo\nrd", WordWrapper.wrap("word", 2));
     }
+
+    @Test
+    public void shouldSplitWordTwice() {
+        assertEquals("lon\ngWo\nrd", WordWrapper.wrap("longWord", 3));
+    }
 }
