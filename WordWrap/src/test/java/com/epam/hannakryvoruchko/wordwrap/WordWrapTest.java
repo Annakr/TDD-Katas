@@ -49,6 +49,11 @@ public class WordWrapTest {
         assertEquals("dolor\nsit\namet", WordWrapper.wrap("dolor sit amet", 5));
     }
 
+    @Test
+    public void shouldSplitThreeWordsWhenFirstLongerThanLengthOfColumn(){
+        assertEquals("dolo\nr\nsit\namet", WordWrapper.wrap("dolor sit amet", 4));
+    }
+
 
 
 }
