@@ -28,4 +28,9 @@ public class WordWrapTest {
     public void shouldSplitTwoWordsWhenSpaceOnBreak(){
         assertEquals("word\nword", WordWrapper.wrap("word word", 5));
     }
+
+    @Test
+    public void shouldNotRemoveSpaceAtTheBeginning(){
+        assertEquals(" word\nword", WordWrapper.wrap(" word word", 6));
+    }
 }
