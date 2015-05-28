@@ -6,6 +6,7 @@ package com.epam.hannakryvoruchko.wordwrap;
 public class WordWrapper {
 
     public static final String LINE_SEPARATOR = "\n";
+    public static final char SPACE_CHAR = ' ';
 
     public static String wrap(String sentence, int columnLength) {
         if(sentence.length() > columnLength) {
@@ -16,8 +17,8 @@ public class WordWrapper {
                 restOfSentence = sentence.substring(columnLength);
             } else {
                 firstPartOfSentence = sentence.substring(0, columnLength);
-                if (firstPartOfSentence.lastIndexOf(' ') != -1) {
-                    int indexOfSpace = firstPartOfSentence.lastIndexOf(' ');
+                if (sentenceContainsSpace(firstPartOfSentence)) {
+                    int indexOfSpace = getIndexOfLastSpace(firstPartOfSentence);
                     firstPartOfSentence = sentence.substring(0, indexOfSpace);
                     restOfSentence = sentence.substring(indexOfSpace + 1);
                 } else
@@ -28,7 +29,15 @@ public class WordWrapper {
             return sentence;
     }
 
+    private static int getIndexOfLastSpace(String firstPartOfSentence) {
+        return firstPartOfSentence.lastIndexOf(SPACE_CHAR);
+    }
+
+    private static boolean sentenceContainsSpace(String sentence) {
+        return getIndexOfLastSpace(sentence) != -1;
+    }
+
     private static boolean isSpaceOnBreak(String sentence, int columnLength) {
-        return sentence.charAt(columnLength - 1) == ' ';
+        return sentence.charAt(columnLength - 1) == SPACE_CHAR;
     }
 }
