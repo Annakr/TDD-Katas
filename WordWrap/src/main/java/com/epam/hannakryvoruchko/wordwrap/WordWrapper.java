@@ -23,6 +23,8 @@ public class WordWrapper {
                     restOfSentence = sentence.substring(indexOfSpace + 1);
                 } else
                     restOfSentence = sentence.substring(columnLength);
+                if(restOfSentence.startsWith(String.valueOf(SPACE_CHAR)))
+                    restOfSentence = restOfSentence.substring(1);
             }
             return firstPartOfSentence + LINE_SEPARATOR + wrap(restOfSentence, columnLength);
         } else
