@@ -7,27 +7,31 @@ public class WordWrapper {
 
     public static String wrap(String sentence, int columnLength) {
         if(sentence.length() > columnLength) {
-            int indexOfBreak;
-            int indexOfNewLineStart;
-            if (isSpaceRightBeforeBreak(sentence, columnLength)) {
-                indexOfBreak = columnLength - 1;
-                indexOfNewLineStart = columnLength;
-            } else if (isSpaceRightAfterBreak(sentence, columnLength)) {
-                indexOfBreak = columnLength;
-                indexOfNewLineStart = columnLength + 1;
-            } else if (containsSpaceBeforeBreak(sentence, columnLength)) {
-                int indexOfSpace = getIndexOfSpace(sentence, columnLength);
-                indexOfBreak = indexOfSpace;
-                indexOfNewLineStart = indexOfSpace + 1;
-            } else {
-                indexOfBreak = columnLength;
-                indexOfNewLineStart = columnLength;
-            }
-            String firstLineOfSentence = sentence.substring(0, indexOfBreak);
-            String restOfSentence = sentence.substring(indexOfNewLineStart);
-            return firstLineOfSentence + LINE_SEPARATOR + wrap(restOfSentence, columnLength);
+            return splitSentenceIntoLines(sentence, columnLength);
         } else
             return sentence;
+    }
+
+    private static String splitSentenceIntoLines(String sentence, int columnLength) {
+        int indexOfBreak;
+        int indexOfNewLineStart;
+        if (isSpaceRightBeforeBreak(sentence, columnLength)) {
+            indexOfBreak = columnLength - 1;
+            indexOfNewLineStart = columnLength;
+        } else if (isSpaceRightAfterBreak(sentence, columnLength)) {
+            indexOfBreak = columnLength;
+            indexOfNewLineStart = columnLength + 1;
+        } else if (containsSpaceBeforeBreak(sentence, columnLength)) {
+            int indexOfSpace = getIndexOfSpace(sentence, columnLength);
+            indexOfBreak = indexOfSpace;
+            indexOfNewLineStart = indexOfSpace + 1;
+        } else {
+            indexOfBreak = columnLength;
+            indexOfNewLineStart = columnLength;
+        }
+        String firstLineOfSentence = sentence.substring(0, indexOfBreak);
+        String restOfSentence = sentence.substring(indexOfNewLineStart);
+        return firstLineOfSentence + LINE_SEPARATOR + wrap(restOfSentence, columnLength);
     }
 
     private static boolean isSpaceRightBeforeBreak(String sentence, int columnLength) {
