@@ -10,7 +10,7 @@ public class WordWrapper {
     public static String wrap(String sentence, int columnLength) {
         if(sentence.length() > columnLength) {
             String firstPartOfSentence;
-            if (sentence.charAt(columnLength - 1) == ' ') {
+            if (isSpaceOnBreak(sentence, columnLength)) {
                 firstPartOfSentence = sentence.substring(0, columnLength - 1);
             } else {
                 firstPartOfSentence = sentence.substring(0, columnLength);
@@ -19,5 +19,9 @@ public class WordWrapper {
             return firstPartOfSentence + LINE_SEPARATOR + wrap(restOfSentence, columnLength);
         } else
             return sentence;
+    }
+
+    private static boolean isSpaceOnBreak(String sentence, int columnLength) {
+        return sentence.charAt(columnLength - 1) == ' ';
     }
 }
