@@ -5,6 +5,9 @@ package com.epam.hannakryvoruchko.wordwrap;
  */
 public class WordWrapper {
     public static String wrap(String sentence, int columnLength) {
-        return sentence;
+        if(sentence.length() > columnLength)
+            return sentence.substring(0, columnLength) + "\n" + sentence.substring(columnLength);
+        else
+            return sentence;
     }
 }
