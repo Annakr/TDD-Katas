@@ -41,7 +41,8 @@ public class WordWrapTest {
     }
     @Test
     public void shouldSplitTwoWordsWhenSpaceAfterBreak(){
-        assertEquals("word\nword", WordWrapper.wrap("word word", 4));
+        String wrap = WordWrapper.wrap("word word", 4);
+        assertEquals("word\nword", wrap);
     }
 
 }
