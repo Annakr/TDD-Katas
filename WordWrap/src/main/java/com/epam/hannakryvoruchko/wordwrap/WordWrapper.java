@@ -17,12 +17,12 @@ public class WordWrapper {
                 restOfSentence = sentence.substring(columnLength);
             } else {
                 firstPartOfSentence = sentence.substring(0, columnLength);
-                if (sentenceContainsSpace(firstPartOfSentence)) {
+                restOfSentence = sentence.substring(columnLength);
+                if (sentenceContainsSpace(firstPartOfSentence) && !restOfSentence.startsWith(String.valueOf(SPACE_CHAR)) ) {
                     int indexOfSpace = getIndexOfLastSpace(firstPartOfSentence);
                     firstPartOfSentence = sentence.substring(0, indexOfSpace);
                     restOfSentence = sentence.substring(indexOfSpace + 1);
-                } else
-                    restOfSentence = sentence.substring(columnLength);
+                }
                 if(restOfSentence.startsWith(String.valueOf(SPACE_CHAR)))
                     restOfSentence = restOfSentence.substring(1);
             }
