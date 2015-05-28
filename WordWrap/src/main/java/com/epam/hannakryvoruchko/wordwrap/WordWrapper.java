@@ -9,46 +9,48 @@ public class WordWrapper {
         if(sentence.length() > columnLength) {
             String firstPartOfSentence;
             String restOfSentence;
-            if (isSpaceOnBreak(sentence, columnLength)) {
+            if (isSpaceRightBeforeBreak(sentence, columnLength)) {
                 firstPartOfSentence = sentence.substring(0, columnLength - 1);
                 restOfSentence = sentence.substring(columnLength);
+            } else if (isSpaceRightAfterBreak(sentence, columnLength)) {
+                firstPartOfSentence = sentence.substring(0, columnLength);
+                restOfSentence = sentence.substring(columnLength + 1);
+            } else if (containsSpaceBeforeBreak(sentence, columnLength)) {
+                int indexOfSpace = getIndexOfSpace(sentence, columnLength);
+                firstPartOfSentence = sentence.substring(0, indexOfSpace);
+                restOfSentence = sentence.substring(indexOfSpace + 1);
             } else {
                 firstPartOfSentence = sentence.substring(0, columnLength);
                 restOfSentence = sentence.substring(columnLength);
-                if (breaksWordAndContainsSpaceBefore(firstPartOfSentence, restOfSentence)) {
-                    int indexOfSpace = getIndexOfLastSpace(firstPartOfSentence);
-                    firstPartOfSentence = sentence.substring(0, indexOfSpace);
-                    restOfSentence = sentence.substring(indexOfSpace + 1);
-                }
-                if(restOfSentence.startsWith(SPACE_SYMBOL))
-                    restOfSentence = removeSpaceAtTheBeginning(restOfSentence);
             }
             return firstPartOfSentence + LINE_SEPARATOR + wrap(restOfSentence, columnLength);
         } else
             return sentence;
     }
 
-    private static String removeSpaceAtTheBeginning(String restOfSentence) {
-        return restOfSentence.substring(1);
+    private static int getIndexOfSpace(String sentence, int columnLength) {
+        String firstLine = sentence.substring(0, columnLength);
+        return firstLine.lastIndexOf(SPACE_SYMBOL);
     }
 
-    private static boolean breaksWordAndContainsSpaceBefore(String firstPartOfSentence, String restOfSentence) {
-        return sentenceContainsSpaceBeforeBreak(firstPartOfSentence) && breaksWord(restOfSentence);
+    private static String removeSpaceAtTheBeginning(String restOfSentence) {
+        return restOfSentence.substring(1);
     }
 
     private static boolean breaksWord(String restOfSentence) {
         return !restOfSentence.startsWith(SPACE_SYMBOL);
     }
 
-    private static int getIndexOfLastSpace(String firstPartOfSentence) {
-        return firstPartOfSentence.lastIndexOf(SPACE_SYMBOL);
+    private static boolean containsSpaceBeforeBreak(String sentence, int columnLength) {
+        String firstLine = sentence.substring(0, columnLength);
+        return firstLine.lastIndexOf(SPACE_SYMBOL) != -1;
     }
 
-    private static boolean sentenceContainsSpaceBeforeBreak(String sentence) {
-        return getIndexOfLastSpace(sentence) != -1;
-    }
-
-    private static boolean isSpaceOnBreak(String sentence, int columnLength) {
+    private static boolean isSpaceRightBeforeBreak(String sentence, int columnLength) {
         return sentence.charAt(columnLength - 1) == ' ';
+    }
+
+    private static boolean isSpaceRightAfterBreak(String sentence, int columnLength) {
+        return sentence.charAt(columnLength) == ' ';
     }
 }

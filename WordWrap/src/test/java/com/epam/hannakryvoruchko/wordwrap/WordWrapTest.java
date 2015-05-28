@@ -42,8 +42,13 @@ public class WordWrapTest {
     }
 
     @Test
-    public void shouldSplitThreeWords(){
+    public void shouldSplitThreeWordsWhenColumnLengthIsFive(){
         assertEquals("dolor\nsit\namet", WordWrapper.wrap("dolor sit amet", 5));
+    }
+
+    @Test
+    public void shouldSplitThreeWordsWhenColumnLengthIsSix(){
+        assertEquals("dolor\nsit\namet", WordWrapper.wrap("dolor sit amet", 6));
     }
 
     @Test
@@ -54,5 +59,10 @@ public class WordWrapTest {
     @Test
     public void shouldSplitInTwoLinesWhenTwoWordsFitColumn(){
         assertEquals("dolor sit\namet", WordWrapper.wrap("dolor sit amet", 9));
+    }
+
+    @Test
+    public void shouldSplitInFourLinesWhenWordsDontFitColumn(){
+        assertEquals("wor\nd\nwor\nd", WordWrapper.wrap("word word", 3));
     }
 }
