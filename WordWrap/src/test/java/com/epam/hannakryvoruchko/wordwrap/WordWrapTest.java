@@ -54,6 +54,11 @@ public class WordWrapTest {
         assertEquals("dolo\nr\nsit\namet", WordWrapper.wrap("dolor sit amet", 4));
     }
 
+    @Test
+    public void shouldSplitInTwoLinesWhenTwoWordsFitColumn(){
+        assertEquals("dolor sit\namet", WordWrapper.wrap("dolor sit amet", 9));
+    }
+
 
 
 }
